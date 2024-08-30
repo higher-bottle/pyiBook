@@ -1,18 +1,10 @@
 import glob
+import pandas as pd
 import os
 import sqlite3
 from datetime import datetime
-import pandas as pd
-
-from rich.console import Console
-from rich.markdown import Markdown
-from rich.table import Column, Table
-from rich.panel import Panel
-from rich.text import Text
 
 
-
-#%%
 def local_ibook_directory(db_path=None):
     """locate the local Ibook directory"""
     path = {"book_path": "", "book_db": "",

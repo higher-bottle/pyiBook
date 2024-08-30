@@ -1,8 +1,9 @@
-from rich import Console
+from rich.console import Console
 from rich.markdown import Markdown
 from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
+import pandas as pd
 
 
 def show_tables(dataframe):
@@ -13,7 +14,7 @@ def show_tables(dataframe):
         table.add_column(col)
 
     for i, row in zip(dataframe.index, dataframe.values):
-        table.add_row(str(i), *[str(item) for item in row])
+        table.add_row(str(i+1), *[str(item) for item in row])
 
     console.print(table)
 
