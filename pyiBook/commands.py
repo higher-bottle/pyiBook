@@ -1,4 +1,5 @@
 import click
+from pyiBook.display import display_introduction, show_tables
 from pyiBook.poccess import *
 import openpyxl
 
@@ -63,16 +64,16 @@ def highlights(option, bookname, output):
         missing_books = [name for name in booknames if
                          not df_result['BookName'].str.contains(name, case=False, na=False).any()]
         if missing_books:
-            click.echo(f"Cannot find the following books: {', '.join(missing_books)}")
+            click.echo(click.style(f"Cannot find the following books: {', '.join(missing_books)}", fg='red'))
             output = False
 
     click.echo(click.style("Selected Books Info:",fg='green', bold=True))
-    show_tables(df_result)
+    show_tables(df_result[df_result.columns.difference(['ID'])])
 
     if output:
         click.echo(click.style("Here is the preview(10 lines) of the output file.", fg='green', bold=True))
         df_result_notation = df_notation[df_notation['ID'].isin(df_result['ID'])]
-        show_tables(df_result_notation.head(10))
+        show_tables(df_result_notation[df_result_notation.columns.difference(['ID'])].head(10))
 
         file_name = click.prompt(click.style('Please give the file name',fg='green',bold=True), type=str)
         file_type_choose = click.prompt(click.style("CSV or XLSX file? Recommend XLSX for Chinese notes.(a:csv/b:xlsx)",
