@@ -84,7 +84,8 @@ def highlights(option, bookname, output):
                                         type=click.Choice(['a', 'b']), default="a")
 
         file_type = 'csv' if file_type_choose == 'a' else 'xlsx'
-        output_filename = os.path.join(os.getcwd(),'Output', f"{file_name}.{file_type}")
+        # output_filename = os.path.join(os.getcwd(),'Output', f"{file_name}.{file_type}")
+        output_filename = f"{file_name}.{file_type}"
 
         if file_type_choose == 'a':
             df_result_notation.to_csv(output_filename, index=False)
