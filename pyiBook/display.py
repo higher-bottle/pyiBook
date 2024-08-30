@@ -1,3 +1,4 @@
+from rich import box
 from rich.console import Console
 from rich.markdown import Markdown
 from rich.panel import Panel
@@ -7,9 +8,9 @@ import pandas as pd
 
 
 def show_tables(dataframe):
-    table = Table(show_edge=False, show_header=True, header_style='bold magenta')
+    table = Table(show_header=True, header_style='bold green', border_style='bold green')
     console = Console()
-    table.add_column("Index", style="bold magenta")
+    table.add_column("Index", style="bold")
     for col in dataframe.columns:
         table.add_column(col)
 
