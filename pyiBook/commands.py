@@ -13,7 +13,7 @@ def cli():
 def get_db_paths():
     """Helper function to handle user input for db_path."""
     while True:
-        use_default = click.prompt("Do you want to use the default path of Apple Book(Recommend)? (Y/N)",
+        use_default = click.prompt(click.style("Do you want to use the default path of Apple Book(Recommend)? (Y/N)", fg='green'),
                                    type=str, default="Y")
         if use_default.lower() == "n":
             db_path = click.prompt('Please input your database path', type=str)
@@ -67,13 +67,14 @@ def highlights(option, bookname, output):
             click.echo(click.style(f"Cannot find the following books: {', '.join(missing_books)}", fg='red'))
             output = False
 
-    click.echo(click.style("Selected Books Info:",fg='green', bold=True))
-    show_tables(df_result[df_result.columns.difference(['ID'])])
+    # click.echo(click.style("Selected Books Info:",fg='green', bold=True))
+    show_tables(df_result[df_result.columns.difference(['ID'])], 'Books Info')
 
     if output:
-        click.echo(click.style("Here is the preview(10 lines) of the output file.", fg='green', bold=True))
+        # click.echo(click.style("Here is the preview(10 lines) of the output file.", fg='green', bold=True))
         df_result_notation = df_notation[df_notation['ID'].isin(df_result['ID'])]
-        show_tables(df_result_notation[df_result_notation.columns.difference(['ID'])].head(10))
+        show_tables(df_result_notation[df_result_notation.columns.difference(['ID'])].head(10),
+                    'Preview(10 lines) of the Output file')
 
         file_name = click.prompt(click.style('Please give the file name',fg='green',bold=True), type=str)
         file_type_choose = click.prompt(click.style("CSV or XLSX file? Recommend XLSX for Chinese notes.(a:csv/b:xlsx)",
