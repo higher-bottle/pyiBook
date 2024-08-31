@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Upload pyiBook to PYPI
+name: Upload Python Package
 
 on:
   release:
@@ -16,68 +16,50 @@ permissions:
   contents: read
 
 jobs:
-  # build the dist package
   release-build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
-        
-    - name: Build release distributions
-      run: >-
-        python3 -m
-        pip install
-        build
-        --user
+      - uses: actions/checkout@v4
 
-    - name: Build a binary wheel and a source tarball
-      run: python3 -m build
-    - name: Store the distribution packages
-      uses: actions/upload-artifact@v3
-      with:
-        name: python-package-distributions
-        path: dist/
-
-#    - name: Upload distributions
-#      uses: actions/upload-artifact@v4
-#      with:
-#        name: release-dists
-#        path: dist/
-
-  pypi-publish:
-    name: >-
-      Publish Python 🐍 distribution 📦 to PyPI
-    needs:
-      - build
-    runs-on: ubuntu-latest
-    environment:
-      name: pypi
-      url: https://pypi.org/p/pyiBook  # Replace <package-name> with your PyPI project name
-    permissions:
-      id-token: write  # IMPORTANT: mandatory for trusted publishing
-
-    steps:
-      - name: Download all the dists
-        uses: actions/download-artifact@v3
+      - uses: actions/setup-python@v5
         with:
-          name: python-package-distributions
+          python-version: "3.x"
+
+      - name: Build release distributions
+        run: |
+          # NOTE: put your own distribution build steps here.
+          python -m pip install build
+          python -m build
+
+      - name: Upload distributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-dists
           path: dist/
 
-      - name: Publish distribution 📦 to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
+  pypi-publish:
+    runs-on: ubuntu-latest
 
-#      - name: Retrieve release distributions
-#        uses: actions/download-artifact@v4
-#        with:
-#          name: release-dists
-#          path: dist/
-#
-#      - name: Publish release distributions to PyPI
-#        uses: pypa/gh-action-pypi-publish@release/v1
-      
-#       - name: Publish package
-#         uses: pypa/gh-action-pypi-publish@main
+    needs:
+      - release-build
+
+    permissions:
+      # IMPORTANT: this permission is mandatory for trusted publishing
+      id-token: write
+
+    # Dedicated environments with protections for publishing are strongly recommended.
+    environment:
+      name: pypi
+      # OPTIONAL: uncomment and update to include your PyPI project URL in the deployment status:
+      # url: https://pypi.org/p/YOURPROJECT
+
+    steps:
+      - name: Retrieve release distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: release-dists
+          path: dist/
+
+      - name: Publish release distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
