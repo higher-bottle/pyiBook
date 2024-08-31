@@ -4,6 +4,9 @@ version = "1.0.0"
 authors = [
   { name="Tess", email="bingting01@outlook.com" },
 ]
+packages = [
+    { include = "pyiBook", from = "src" }
+]
 description = "A CLI tool for interacting with iBooks library."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -12,7 +15,13 @@ classifiers = [
      "License :: OSI Approved :: MIT License",
      "Operating System :: OS Independent",
 ]
-
+dependencies = ['Click',
+                'rich',
+                'pandas',
+                'requests',
+                'openpyxl']
 [project.urls]
 Homepage = "https://github.com/higher-bottle/pyiBook"
 Issues = "https://github.com/higher-bottle/pyiBook/issues"
+[project.scripts]
+pyiBook = "pyiBook.commands:cli"
