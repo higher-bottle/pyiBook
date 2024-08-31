@@ -1,9 +1,5 @@
-import os
-
 import click
-from pyiBook.display import display_introduction, show_tables
-from pyiBook.poccess import *
-import openpyxl
+from src.pyiBook.display import display_introduction, show_tables
 
 
 @click.group()

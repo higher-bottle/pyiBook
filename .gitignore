@@ -164,3 +164,6 @@ notion_wtd.py
 *.xlsx
 *.csv
 main.py
+setup.py
+Pipfile
+Pipfile.lock

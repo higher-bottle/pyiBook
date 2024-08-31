@@ -1,0 +1,18 @@
+[project]
+name = "pyiBook"
+version = "1.0.0"
+authors = [
+  { name="Tess", email="bingting01@outlook.com" },
+]
+description = "A CLI tool for interacting with iBooks library."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+     "Programming Language :: Python :: 3",
+     "License :: OSI Approved :: MIT License",
+     "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/higher-bottle/pyiBook"
+Issues = "https://github.com/higher-bottle/pyiBook/issues"
