@@ -23,4 +23,4 @@ Homepage = "https://github.com/higher-bottle/pyiBook"
 Issues = "https://github.com/higher-bottle/pyiBook/issues"
 
 [project.scripts]
-pyiBook = "pyiBook.commands:cli"
+pyiBook = "pyiBook.__init__:cli"
