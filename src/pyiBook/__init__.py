@@ -1,1 +1,1 @@
-from src.pyiBook.commands import *
+from .commands import *
