@@ -167,3 +167,4 @@ main.py
 setup.py
 Pipfile
 Pipfile.lock
+test/
