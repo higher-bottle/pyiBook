@@ -5,7 +5,6 @@ A CLI tool for interacting with your local Apple iBooks library for **MacOS user
 > [!NOTE]
 > The functionality that output the highlights in Apple iBook on iPhone will be updated in the future.  
 
-
 The tool is designed to __extract the notes and highlights__ you have made in Apple Book and __download as CSV or XLSX files__.  
 The output will contain:
 - Highlighted Content
@@ -15,6 +14,13 @@ The output will contain:
 
 Output Example:  
 <img  alt="image" src="https://github.com/user-attachments/assets/fab61dd3-5c57-4362-bfe8-91a5cd0220ae">
+
+- [Installation](#Installation)
+- [Instruction](#Instruction)
+  - [Show the Book/PDF information in your local Apple iBook library](#Show-the-Book/PDF-information-in-your-local-Apple_-iBook-library-(no-output-file))
+  - [Output files which contain highlights and notes](#Output-files-which-contain-highlights-and-notes)
+  - [Manually input the path](#Manually-input-the-path)
+
 
 ## Installation
 It is easy to download the package.  
@@ -38,9 +44,10 @@ Options:
 
 At the beginning, it will ask you ```Do you want to use the default path of Apple Book(Recommend)? (Y/N) [Y]```, you can choose ```y``` for most time because it is programmed to locate the directory automatically.  
 > [!IMPORTANT]
-> However, if it warns that ```The path is not valid. Please try another one.```, you have to manually input the path, please refer to [Manually input the path](README.md).
+> However, if it warns that ```The path is not valid. Please try another one.```, you have to manually input the path, please refer to [Manually input the path](#Manually-input-the-path).
 
-### 1. Show the Book/PDF information in your local Apple iBook library (no output file)
+
+### Show the Book/PDF information in your local Apple iBook library (no output file)
 The overview will show the bookname, numbers of highlights, author, and filetype of each book.
 > [!TIP]
 > If you open and upload your PDF files to Apple Books, these files will also be loaded in this library.
@@ -55,7 +62,7 @@ The overview will show the bookname, numbers of highlights, author, and filetype
 E.g:
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/59d8bb70-6649-479c-954c-1c8865c06198">
 
-### 2. Output files which contain highlights and notes
+### Output files which contain highlights and notes
 Add ``` -output``` after the commands above, then it will output files for the specified books. You can decide which filetype to be exported(.csv/.xlsx) and the file name. 
 > [!CAUTION]
 > If you input a file name which already exists in the folder you are working, it will 
