@@ -17,7 +17,7 @@ Output Example:
 
 - [Installation](#Installation)
 - [Instruction](#Instruction)
-  - [Show the Book/PDF information in your local Apple iBook library](#Show-the-Book/PDF-information-in-your-local-Apple_-iBook-library-(no-output-file))
+  - [Show the Book/PDF information in your local Apple iBook library](#Show-the-Book/PDF-information-in-your-local-Apple-iBook-library)
   - [Output files which contain highlights and notes](#Output-files-which-contain-highlights-and-notes)
   - [Manually input the path](#Manually-input-the-path)
 
@@ -47,7 +47,7 @@ At the beginning, it will ask you ```Do you want to use the default path of Appl
 > However, if it warns that ```The path is not valid. Please try another one.```, you have to manually input the path, please refer to [Manually input the path](#Manually-input-the-path).
 
 
-### Show the Book/PDF information in your local Apple iBook library (no output file)
+### Show the Book/PDF information in your local Apple iBook library
 The overview will show the bookname, numbers of highlights, author, and filetype of each book.
 > [!TIP]
 > If you open and upload your PDF files to Apple Books, these files will also be loaded in this library.
