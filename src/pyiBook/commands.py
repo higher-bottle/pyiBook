@@ -1,5 +1,5 @@
 import click
-from src.pyiBook.display import display_introduction, show_tables
+from .display import display_introduction, show_tables
 
 
 @click.group()
