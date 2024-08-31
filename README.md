@@ -23,6 +23,10 @@ Output Example:
 
 
 ## Installation
+> [!IMPORTANT]
+> Please ensure that the version of the python on your pc is **>=3.9**, you can check it by inputting ```python3 --version``` or ```python --version```. You can install or upgrade python according to [Use python on Mac](https://docs.python.org/zh-cn/3.12/using/mac.html) or [Homebrew](https://brew.sh)
+
+
 It is easy to download the package.  
 Just input ```pip install pyiBook``` or ```pip install git+https://github.com/higher-bottle/pyiBook.git``` in Terminal.app.  
 After the package is downloaded, you can get started!
